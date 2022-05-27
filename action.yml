@@ -1,0 +1,9 @@
+name: "C# major.year.week.build versioning"
+description: "Automatically generate version numbers for C# assemblies"
+inputs:
+  token:
+    description: "GitHub token"
+    required: true
+runs:
+  using: "node16"
+  main: "index.js"
