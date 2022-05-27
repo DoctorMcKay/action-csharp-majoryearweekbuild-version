@@ -1,5 +1,5 @@
 const {getInput, info, warning, setFailed} = require('@actions/core');
-const {GitHub} = require('@actions/github');
+const {getOctokit} = require('@actions/github');
 const FS = require('fs');
 const Path = require('path');
 
@@ -10,7 +10,7 @@ async function main() {
 		
 		let [owner, repo] = process.env.GITHUB_REPOSITORY.split('/');
 		
-		let gh = new GitHub(getInput('token'));
+		let gh = getOctokit(getInput('token'));
 		let workflowId = (await gh.rest.actions.getWorkflowRun({
 			owner,
 			repo,
