@@ -52,7 +52,7 @@ async function main() {
 				return;
 			}
 			
-			let version = `${majorVersion}.${versionWithoutMajor}`;
+			let version = `${majorVersion[1]}.${versionWithoutMajor}`;
 			info(`Setting version ${version} in ${filePath}`);
 			assemblyInfo = assemblyInfo.replace(versionLine, `[assembly: AssemblyVersion("${version}")]`);
 			FS.writeFileSync(filePath, assemblyInfo);
