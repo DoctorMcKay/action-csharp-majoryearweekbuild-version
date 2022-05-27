@@ -30,7 +30,7 @@ async function main() {
 			firstRunNumberOfWeek = runs[runs.length - 1].number;
 		}
 		
-		let buildId = process.env.GITHUB_RUN_NUMBER - firstRunNumberOfWeek;
+		let buildId = process.env.GITHUB_RUN_NUMBER - firstRunNumberOfWeek + 1;
 		let versionWithoutMajor = `${now.getFullYear() % 100}.${currentWeekNumber}.${buildId}`;
 		
 		// Now we need to put that version into all applicable AssemblyInfo.cs files
